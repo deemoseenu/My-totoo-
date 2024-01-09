@@ -1,0 +1,16 @@
+nav{
+    display:flex;
+    flex-direction: row;
+}
+.tr{
+   margin-top: 10px;
+}
+.sr{
+    display: flex;
+    flex-direction: row;
+    border:2px solid red;
+    background-color: aqua;
+    border-radius: 30px;
+    margin: 200px  1000px 0px 0px;
+    
+}

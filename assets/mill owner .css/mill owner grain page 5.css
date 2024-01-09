@@ -1,0 +1,98 @@
+*{
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+}
+.img{
+    padding-top: 8px;
+}
+
+
+.ang{
+    background-color: aqua;
+    border-radius: 5px;
+    width: fit-content;
+    
+}
+.ang:hover{
+    background-color: peru;
+    border: peru;
+    cursor: pointer;
+
+}
+
+.table1{
+    height: fit-content;
+}
+.son th{
+    padding: 20px;
+    font-size: 20px;
+}
+.son td{
+    padding:  15px;
+}
+.son tr:nth-child(odd){
+    background-color: rgb(195, 255, 255);
+}
+.son tr:nth-child(even){
+    background-color: rgb(252, 252, 252);
+}
+.son .ar{
+    background-color: rgb(172, 233, 172) !important;
+}
+
+.table2{
+    height: fit-content;
+    margin-left: 0;
+}
+.son2{
+    border: 2px solid orange;
+    width: 50em;
+    height: 5em;
+    margin-left: 20em;
+    
+}
+.son2 td{
+    border: 1px solid black;
+    padding:  15px;
+}
+.son2 th{
+    padding: 20px;
+    font-size: 20px;
+}
+.son2 tr:nth-child(odd){
+    background-color: rgb(195, 255, 255);
+}
+.son2 tr:nth-child(even){
+    background-color: rgb(252, 252, 252);
+}
+.son2 .ar{
+    background-color: rgb(172, 233, 172) !important;
+}
+.table{
+    display: flex;
+    flex-direction: row;
+}
+.son .hilight td{
+    background-color:rgb(84, 84, 160);
+}    
+.ang1{
+    display: flex;
+    flex-direction: row;
+}
+.ang2{
+    margin-left: 40pc;
+    margin-top: 10px;
+    background-color: aqua;
+    border-radius: 5px;
+    width: fit-content;
+}
+.ang2:hover{
+    background-color: peru;
+    border: peru;
+    cursor: pointer;
+
+}

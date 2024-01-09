@@ -1,0 +1,17 @@
+nav{
+    display: flex;
+    flex-direction: row;
+}
+.img1{
+    padding-top: 8px;
+}
+.ash{
+    display: flex;
+    flex-direction: row;
+}
+.letter{
+    font-size: 2rem;
+}
+.letter h1{
+    color: gold;
+}

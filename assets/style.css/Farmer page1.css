@@ -1,0 +1,159 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.drop{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+
+
+}
+.drop li{
+    margin-left: 20px;
+}
+
+a{
+     display: block;
+     width: 100px;
+     background-color: black;
+     color: azure;
+     padding:10px;
+     font-size: 1.2rem;
+     text-align: center;
+}
+a:hover{
+    background-color: lightblue;
+
+}
+.down{
+  list-style-type: none;
+  display: none;
+}
+.drop li:nth-child(1):hover .down{
+    display: block;
+    margin-left: -20px;
+    
+}
+.down{
+    list-style-type: none;
+    display: none;
+  }
+  .drop li:nth-child(2):hover .down{
+      display: block;
+      margin-left: -20px;
+      
+  }
+
+
+
+
+
+nav{
+    background-color: white;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid black;
+    
+
+}
+.drop{
+    list-style-type: none;
+}
+
+nav div{
+    height: 50px;
+    margin:0 30px 0 30px;
+    display:flex;
+}
+a{
+    text-decoration: none;
+}
+.img1{
+  margin-bottom: 50px;
+ 
+}
+button{
+   margin:0 20px;
+   padding: 15;
+   border-radius: 10px;
+   border: 0;
+   box-shadow: 1px 4px 10px;
+}
+
+
+button:hover{
+    background-color: aqua;
+    cursor: pointer;
+    transform: scale(1.2);
+
+}
+.map{
+    margin-left:300px;
+  
+
+}
+
+
+.container{
+    margin: 40px 0 0 300px;
+    
+}
+
+table,th,td{
+    border: 4px solid  ;
+    border-collapse: collapse;
+    background-color: azure;
+}
+th{
+    padding: 30px 30px 30px 40px;
+    font-size: 20px;
+}
+td{
+    padding:  20px 20px 20px 20px;
+}
+.cereals{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.font{
+    font-size: 1.5rem;
+    margin-left: 22px;
+}
+.font1{
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+}
+.footer1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20%;
+
+}
+h2{
+    color: green;
+}
+.f2{
+    margin-left: 5%;
+}
+.f3{
+    margin-left:5%;
+}
+footer{
+    margin: 2% 5% 0 5%;
+
+}
+.copy{
+    text-align: center;
+}

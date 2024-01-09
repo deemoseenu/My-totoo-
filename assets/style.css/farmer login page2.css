@@ -1,0 +1,113 @@
+/* Reset some default styles for consistency */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the container */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Style the form */
+.form-con {
+    margin-bottom: 20px;
+}
+
+/* Style labels */
+.form-con label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style input fields */
+.form-con input[type="text"],
+.form-con input[type="tel"],
+.form-con input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Style error messages */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* Style buttons */
+button[type="button"],
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+button[type="button"] {
+    background-color: #ccc;
+    color: #333;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+/* Add some spacing between buttons */
+button + button {
+    margin-left: 10px;
+}
+
+/* Center buttons */
+.form-con button {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Style the form header */
+.form h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style form links */
+.form a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}

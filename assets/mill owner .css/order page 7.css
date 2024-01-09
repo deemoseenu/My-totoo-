@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+nav{
+   display: flex;
+   flex-direction: row;
+   border-bottom: 2px solid black;
+}
+.head{
+    margin-top: 13px;
+    font-size: 2rem;
+}
+.head1{
+    margin-top: 9px;
+}
+table{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 10%;
+}
+th{
+    padding: 5px;
+    color:red;
+    font-size: 2rem;
+}
+td{
+    padding: 10px;
+}
+.button1{
+    background-color: lightgreen;
+    border: lightgreen;
+    color: green;
+
+}
+.button2{
+    background-color: lightyellow;
+    border: lightyellow;
+    color: rgb(102, 0, 255);
+
+}
+.button3{
+    background-color: rgb(217, 149, 149);
+    border: rgb(217, 149, 149) ;
+    color: red;
+}

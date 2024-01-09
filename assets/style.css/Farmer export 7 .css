@@ -1,0 +1,90 @@
+*{
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+}
+.siv {
+    margin-top: 8px;
+
+}
+ nav.tum{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+
+.so{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(150, 209, 209);
+    border-radius: 5px;
+    
+}
+.so:hover{
+    background-color:rgb(218, 177, 136);
+    border:rgb(218,177,136);
+    cursor: pointer;
+   
+}
+.so1{
+    padding-top: 20px;
+}
+
+.sr{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(150, 209, 209);
+    border-radius: 5px;
+   
+    
+}
+.sr:hover{
+    background-color: rgb(218, 177, 136);
+    border: rgb(218,177,136);
+    cursor: pointer;
+    
+}
+table,th,td{
+    border-collapse: collapse;
+}
+
+.container{
+    margin: 80px 0 0 150px;
+}  
+th{
+    padding:  40px 40px 30px 40px;
+    font-size: 25px;
+}
+td{
+    padding:  40px 40px 30px 40px;
+}
+tr:nth-child(odd){
+    background-color: rgb(195, 255, 255);
+}
+tr:nth-child(even){
+    background-color: rgb(252, 252, 252);
+}
+.am{
+    background-color: rgb(172, 233, 172) !important;
+}
+.link:hover{
+	color:blue;
+}
+.ang{
+    margin-left: 40pc;
+    margin-top: 10px;
+    background-color: aqua;
+    border-radius: 5px;
+    width: fit-content;
+}
+.ang:hover{
+    background-color: peru;
+    border: peru;
+    cursor: pointer;
+
+}
