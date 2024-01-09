@@ -1,0 +1,45 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "name": "John",
+      "mobile_number": 8270148693,
+      "district": "kanchipuram",
+      "town": "chennai",
+      "password": "S1i2v3@A4"
+    },
+    {
+      "name": "irfan",
+      "mobile_number": 8270146939,
+      "district": "chennai",
+      "town": "kandachavadi",
+      "password": "S1i2v3@A4",
+      "id": 2
+    },
+    {
+      "name": "maruthan",
+      "mobile_number": 8270146939,
+      "district": "chennai",
+      "town": "kandachavadi",
+      "password": "S1i2v3@A4",
+      "id": 3
+    },
+    {
+      "name": "Siva",
+      "mobileNumber": "9750098374",
+      "district": "SVG",
+      "town": "MNM",
+      "password": "S1i2v3@A4",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "grain_name": "paddy",
+      "variety_name": "IR8",
+      "quantity": 20,
+      "price": 60
+    }
+  ]
+}
