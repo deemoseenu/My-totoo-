@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<htm lang="en">
+
+    <head>
+        <title> mill grain adt36 5.1</title>
+        <link rel="stylesheet" href="../../assets/mill owner .css/mill owner grain detail.css">
+
+    </head>
+
+    <body>
+        <nav>
+            <div class="img1">
+                <a class="navigation" href="./Mill owner page 1 .html">
+                    <img src="../../images/arrow-back-outline.svg" alt="arrow logo" width="50px">
+                </a>
+
+            </div>
+
+            <div class="s">
+                <h1>
+                    <strong>paddy</strtong>
+                </h1>
+
+            </div>
+
+        </nav>
+
+        <hr>
+
+        <div id="container">
+
+        </div>
+
+
+
+        <script>
+
+            let products = JSON.parse(localStorage.getItem("grain_details"));
+
+
+            for (i = 0; i < products.length; i++) {
+                // div open
+                div_detail = document.createElement("div");
+                div_detail.setAttribute("class", "detail");
+
+                //2 div open
+                div_grains = document.createElement("div");
+                div_grains.setAttribute("class", "grains");
+
+
+                // h2 dag open
+                h2_variety_name = document.createElement("h2");
+                h2_variety_name.setAttribute("class", "variety_name");
+                h2_variety_name.innerText = products[i]["variety_name"];
+                div_grains.append(h2_variety_name);
+                // p1
+                p_name = document.createElement("p");
+                p_name.setAttribute("class", "name");
+                p_name.innerText = "Farmer name :" + products[i]["name"];
+                div_grains.append(p_name);
+
+
+                //p3
+                p_district = document.createElement("p");
+                p_district.setAttribute("class", "district");
+                p_district.innerText = "District :" + products[i]["district"];
+                div_grains.append(p_district);
+
+
+                //p4
+                p_town = document.createElement("p");
+                p_town.setAttribute("class", "town");
+                p_town.innerText = "Town :" + products[i]["town"];
+                div_grains.append(p_town);
+
+
+                //p5
+                p_quantity = document.createElement("p");
+                p_quantity.setAttribute("class", "quantity");
+                p_quantity.innerText = "Quantity of gunny bags :" + products[i]["quantity"];
+                div_grains.append(p_quantity);
+
+
+                //6
+                p_price = document.createElement("p");
+                p_price.setAttribute("class", "price");
+                p_price.innerText = "price-per kG :" + products[i]["price"];
+                div_grains.append(p_price);
+
+
+                //p7
+                p_mobile_number = document.createElement("p");
+                p_mobile_number.setAttribute("class", "mobile_number");
+                p_mobile_number.innerText = "Mobile Number :" + products[i]["mobile_number"];
+                div_grains.append(p_mobile_number);
+
+
+                div_detail.append(div_grains)
+                // 2 div for button
+                div_button = document.createElement("div");
+                div_button.setAttribute("class", "button");
+
+
+                //button
+                button_button = document.createElement("button");
+                button_button.setAttribute("class", "button1");
+                button_button.setAttribute("data-number", products[i].mobile_number)
+                button_button.setAttribute("id", products[i]["grains_id"]);
+
+                button_button.addEventListener("click", function (index) {
+                    let id = this.id
+                    // console.table("ID:", id)
+
+                    let current_user = products.find(found => id === found.grains_id);
+
+                    // console.log(current_user)
+                    // products[index].Status = "accepted";
+                    // localStorage.setItem("grain_details", JSON.stringify(products));
+
+                });
+
+                button_button.innerText = "Accept";
+                div_button.append(button_button);
+                div_detail.append(div_button);
+
+                let container = document.getElementById("container");
+                container.append(div_detail);
+
+            }
+
+            let btn = document.querySelectorAll(".button1")
+            for(let i=0; i<btn.length; i++) {
+
+                btn[i].addEventListener("click", function(el){
+
+                    let number = btn[i].dataset.number
+                    // if(number === el.dataset.number){
+                        products.find(e => {
+                            if(e.mobile_number == number){
+                                e.Status = false
+                                localStorage.setItem("grain_details", JSON.stringify(products))
+                            }
+                        })
+                    // }
+
+                })
+
+            }
+
+
+
+
+
+        </script>
+
+
+    </body>
+
+</htm>

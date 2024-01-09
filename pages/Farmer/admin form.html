@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> farmer login page2</title>
+    <link rel="stylesheet" href="../../assets/style.css/farmer login page2.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2> Today grains market price</h2>
+        </div>
+        <form class="form" id="form" >
+            <div class="form-con">
+                <label> Paddy Value</label>
+                <input type="Number" id="Paddy_Value" >
+
+            </div>
+
+            <div class="form-con">
+                <label> Wheat Value </label>
+                <input type="tel" id="Wheat_Value" >
+    
+
+            </div>
+
+            <div class="form-con">
+                <label> Cotton</label>
+                <input type="number" id="Cotton_value"  >
+
+
+            </div>
+
+            <div class="form-con">
+                <label> Sugarcane Value</label>
+                <input type="Number" id="Sugarcane_Value" >
+
+            </div>
+
+            <div class="form-con">
+                <label> Tea Value</label>
+                <input type="Number" id="Tea_Value">
+            
+
+            </div>
+
+            <div class="form-con">
+                <label> Coffe Value</label>
+                <input type="password" id="Coffe_Value" >
+
+
+            </div>
+
+            <a href="./Farmer home page 4.html"></a>
+
+            <button>
+                <a href="../Farmer/FARMER PAGE 1.html">
+                    back
+                </a>
+            </button>
+
+            <button type="submit" onclick="registerMarketValues(event)"> Submit </button>
+            <a href=""></a>
+
+        </form>
+
+    </div>
+
+    <script>
+        
+  // Function to register market values
+  function registerMarketValues(e) {
+    e.preventDefault(); // Prevent form submission
+
+    // Get input values
+    let paddy = document.getElementById('Paddy_Value').value;
+    let wheat = document.getElementById('Wheat_Value').value;
+    let cotton = document.getElementById('Cotton_value').value;
+    let sugarcane = document.getElementById('Sugarcane_Value').value;
+    let tea = document.getElementById('Tea_Value').value;
+    let coffee = document.getElementById('Coffe_Value').value;
+
+    // Create market values object
+    var marketValues = {
+      Paddy_Value: paddy,
+      Wheat_Value: wheat,
+      Cotton_Value: cotton,
+      Sugarcane_Value: sugarcane,
+      Tea_Value: tea,
+      Coffee_Value: coffee
+    };
+
+    // Save market values object to localStorage
+    localStorage.setItem('market_values', JSON.stringify(marketValues));
+
+    // Display success message
+    console.log('Market values stored successfully!');
+    
+    // Reset the form
+    document.getElementById('form').reset();
+  }
+
+  
+//         // Function to register market values
+// function registerMarketValues(e) {
+//   // Get input values
+//   let paddy = document.getElementById('Paddy_Value').value;
+//   let wheat = document.getElementById('Wheat_Value').value;
+//   let cotton = document.getElementById('Cotton_Value').value;
+//   let sugarcane = document.getElementById('Sugarcane_Value').value;
+//   let tea = document.getElementById('Tea_Value').value;
+//   let coffee = document.getElementById('Coffee_Value').value;
+
+//   // Create market values object
+//   var marketValues = {
+//     Paddy_Value: paddy,
+//     Wheat_Value: wheat,
+//     Cotton_Value: cotton,
+//     Sugarcane_Value: sugarcane,
+//     Tea_Value: tea,
+//     Coffee_Value: coffee
+//   };
+
+//   // Save market values object to localStorage
+//   localStorage.setItem('market_values', JSON.stringify(marketValues));
+
+//   // Display success message
+//   console.log('Market values stored successfully!');
+// }
+
+        // // Function to register a user
+        //     function registerUser(e) {
+        //     // Get input values
+        //     let paddy = document.getElementById('Paddy_Value').value;
+        //     let Wheat  = document.getElementById('Wheat_Value').value;
+        //     let cotton = document.getElementById('Cotton_value').value;
+        //     let sugarcane = document.getElementById('Sugarcane_Value').value;
+        //     let Tea  = document.getElementById('Tea_Value').value;
+        //     let Coffe = document.getElementById('Coffe_Value').value;
+
+
+
+   
+
+        //     // Create user object
+        //     var registerUser = JSON.parse(localStorage.getItem('market_value'));
+
+        //     var valuep = registeredUser.Paddy_Value;
+        //     var valuew = registeredUser.Wheat_Value;
+        //     var valuec = registeredUser.Cotton_value;
+        //     var values = registeredUser.Sugarcane_Value;
+        //     var valuert = registeredUser.Tea_Value;
+        //     var valued = registeredUser.Coffe_Value;
+            
+
+        //     //    Paddy = Paddy_Value,
+        //     //    wheat = Wheat_Value,
+        //     //    Cotton = Cotton_value,
+        //     //    Sugarcane = Sugarcane_Value,
+        //     //    tea = Tea_Value,
+        //     //    coffe = Coffe_Value
+
+        //     // };
+
+        //     // Save user object to localStorage
+        //     localStorage.setItem('market_value', JSON.stringify(market_value));
+
+        //     // Display success message
+        //     console.log('value stored successfully!');
+        //     }
+
+    
+
+        // function market_rate(e) {
+        //     e.preventDefault();
+
+        //     const name = document.getElementById("name").value;
+        //     const mobile_number = document.getElementById("mobile_number").value;
+        //     const district = document.getElementById("district").value;
+        //     const town = document.getElementById("town").value;
+        //     const password = document.getElementById("password").value;
+        //     const confrim_password = document.getElementById("confrim_password").value;
+
+        //     function checkpass() {
+        //         if (password != password) {
+        //             alert("Incrrect password");
+        //             document.getElementById("user_password").reset();
+        //         }
+        //     }
+
+        //     checkpass();
+
+        //     const market_rate = JSON.parse(localStorage.getItem("market_rate")) || [] ;
+        //     const exist =
+        //     market_rate.length &&
+        //         JSON.parse(localStorage.getItem("market_rate")).some(
+        //             (data) =>
+        //                 data.name.toLowerCase() == name.toLowerCase() ||
+        //                 data.mobile_number == mobile_number
+        //         );
+        //     if (!exist) {
+        //         market_rate.push({
+        //             name,
+        //             mobile_number,
+        //             district,
+        //             town,
+        //             password,
+        //             confrim_password,
+        //         });
+        //         localStorage.setItem("market_rate", JSON.stringify(user_list));
+        //         console.log(localStorage.getItem("market_rate"));
+        //         document.querySelector("form").reset();
+        //         document.getElementById("name").focus();
+        //         document.getElementById("mobile_number").focus();
+        //         alert("Value added successfully");
+        //         location.href = "../Farmer/FARMER PAGE 1.html";
+          
+        //         document.querySelector("form").reset();
+        //     }
+        // }
+        
+    </script>
+
+</body>
+
+</html>
+
+
+

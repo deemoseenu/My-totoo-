@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>farmer sign in page 3</title>
+
+        <link rel="stylesheet" href="../../assets/mill owner .css/mill owner login.css">
+
+    </head>
+
+    <body>
+        <div>
+
+        </div>
+        <div class="container">
+            <div class="card">
+                <img src="../../images/agri logo.png" alt="logo" width="180px" height="80px">
+
+                <div class="form">
+                    <form onsubmit="signIn(event);">
+                        <div class="form-con">
+                            <lanbel class="user_number"> User mobile number</lanbel>
+                            <input type="text" id="mobile_number" class="mobile_number">
+                        </div>
+
+                        <div class="form-con">
+                            <lable class="user password"> password</lable>
+                            <input type="password" id="password" class="password">
+                        </div>
+
+                        <div>
+                            <button type="submit" class="submit">
+                                SUBMIT
+                            </button>
+                        </div>
+                    </form>
+                   
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+function signIn(e) {
+  e.preventDefault();
+  const mobile_number = document.getElementById("mobile_number").value;
+  const password = document.getElementById("password").value;
+  const user_list = JSON.parse(localStorage.getItem("user_list2"));
+  const exist =
+    user_list.length &&
+    JSON.parse(localStorage.getItem("user_list2")).some(
+      (data) =>
+        data.password.toLowerCase() == password.toLowerCase() &&
+        data.mobile_number == mobile_number
+    );
+  if (!exist) {
+    alert("Incorrect login credentials");
+  } else {
+    alert("Your login in successful");
+    localStorage.setItem("unique", mobile_number);
+    location.href = "../Mill owner/Mill owner page 1 .html";
+  }
+}
+
+
+    </script>
+    </body>
+
+</html>

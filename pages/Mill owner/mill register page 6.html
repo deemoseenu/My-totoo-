@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> farmer login page2</title>
+    <link rel="stylesheet" href="../../assets/style.css/farmer login page2.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2> Create Account</h2>
+        </div>
+        <form class="form" id="form" onsubmit="registration(event)">
+            <div class="form-con">
+                <label>  Name</label>
+                <input type="text" id="name" pattern="[A-Za-z]{1-22}" title="Required Name" required>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-con">
+                <label> Company Name</label>
+                <input type="text" id="company_name" pattern="[A-Za-z]{1-22}" title="Required Name" required>
+            </div>
+
+            <div class="form-con">
+                <label> Mobile Number </label>
+                <input type="tel" id="mobile_number" title="Required Mobile Number" required>
+                <small>Error message</small>
+
+            </div>
+
+            <div class="form-con">
+                <label> district</label>
+                <input type="text" id="district" title="Required district" required>
+                <small>Error message</small>
+
+            </div>
+
+            <div class="form-con">
+                <label> Town</label>
+                <input type="text" id="town" title="Required " required>
+                <small>Error message</small>
+
+            </div>
+
+            <div class="form-con">
+                <label> Password</label>
+                <input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                <small>Error message</small>
+
+            </div>
+
+            <div class="form-con">
+                <label> Confrim password</label>
+                <input type="password" id="confrim_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                <small>Error message</small>
+
+            </div>
+
+           
+
+            <button>
+                <a href="../Farmer/FARMER PAGE 1.html">
+                    back
+                </a>
+            </button>
+
+            <button type="submit"> Submit </button>
+            <a href=""></a>
+
+        </form>
+
+    </div>
+
+    <script>
+    
+
+        function registration(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const company_name = document.getElementById("company_name").value;
+            const mobile_number = document.getElementById("mobile_number").value;
+            const district = document.getElementById("district").value;
+            const town = document.getElementById("town").value;
+            const password = document.getElementById("password").value;
+            const confrim_password = document.getElementById("confrim_password").value;
+
+            function checkpass() {
+                if (password != password) {
+                    alert("Incrrect password");
+                    document.getElementById("user_password").reset();
+                }
+            }
+
+            checkpass();
+
+            const user_list = JSON.parse(localStorage.getItem("user_list2")) || [] ;
+            const exist =
+                user_list.length &&
+                JSON.parse(localStorage.getItem("user_list2")).some(
+                    (data) =>
+                        data.name.toLowerCase() == name.toLowerCase() ||
+                        data.mobile_number == mobile_number
+                );
+            if (!exist) {
+                user_list.push({
+                    name,
+                    company_name,
+                    mobile_number,
+                    district,
+                    town,
+                    password,
+                    confrim_password,
+                });
+                localStorage.setItem("user_list2", JSON.stringify(user_list));
+                console.log(localStorage.getItem("user_list2"));
+                document.querySelector("form").reset();
+                document.getElementById("name").focus();
+                document.getElementById("mobile_number").focus();
+                alert("Account created Successfully");
+                location.href = "../Mill owner/mill owner login.html";
+            } else {
+                alert(
+                    "Sorry the User already Exist!! \n Try with different Phone number or name"
+                );
+                document.querySelector("form").reset();
+            }
+        }
+        
+    </script>
+
+</body>
+
+</html>

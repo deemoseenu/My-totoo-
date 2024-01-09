@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Farmer Edit Page</title>
+  <link rel="stylesheet" href="../../assets/style.css/Farmer profil 9.css">
+</head>
+
+<body>
+  <header>
+    <a class="navigationlink" href="../Farmer/Farmer home page 4.html">
+      <img src="../../images/arrow-back-outline.svg" alt="arrow logo" width="50px" height="100px">
+    </a>
+    <h1 class="t">
+      <strong>PROFILE</strong>
+    </h1>
+  </header>
+  <div class="container">
+    <div>
+      <img src="../../images/a37d2d1dfafd6d7d21148b8d28e409f6.jpg" class="profile-image" alt="profile logo">
+    </div>
+    <form class="profile-form" onsubmit="signIn(event);">
+      <div class="form-row">
+        <img src="../../images/person.svg" alt="person logo" width="80px">
+        <div class="b">
+          <input type="text" placeholder="NAME" id="name"  src="../Farmer/FARMER PAGE 1.html" required="true">
+        </div>
+      </div>
+      <div class="form-row">
+        <img src="../../images/call.svg" alt="call logo" width="80px">
+        <div class="b">
+          <input type="text" placeholder="MOBILE NUMBER" id="mobile_number" required="true" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <img src="../../images/location-outline.svg" alt="call logo" width="80px">
+        <div class="b">
+          <input type="text" placeholder="District" id="district" required="true">
+        </div>
+      </div>
+      <div class="form-row">
+        <img src="../../images/location-outline.svg" alt="call logo" width="80px">
+        <div class="b">
+          <input type="text" placeholder="Town" id="town" required="true">
+        </div>
+      </div>
+    </form>
+    <div class="profile-buttons">
+      <button onclick="updateUser()">Save</button>
+      <button onclick="logoutUser()">Log Out</button>
+      <button onclick="deleteUser() ">Delete</button>
+    </div>
+  </div>
+
+
+
+        <script>
+// Retrieve user list from localStorage
+const user_list = JSON.parse(localStorage.getItem("user_list")) || [];
+
+// Retrieve unique ID (mobile number) from localStorage
+const unique_id = localStorage.getItem("unique");
+
+// Function to find user by mobile number
+function findUserByMobileNumber(mobileNumber) {
+  return user_list.find(user => user.mobileNumber === mobileNumber);
+}
+
+// Function to populate user profile data
+function populateUserProfile() {
+  if (unique_id) {
+    const user_data = findUserByMobileNumber(unique_id);
+
+    if (user_data) {
+      document.getElementById("name").value = user_data.name;
+      document.getElementById("mobile_number").value = user_data.mobileNumber;
+      document.getElementById("district").value = user_data.district;
+      document.getElementById("town").value = user_data.town;
+    } else {
+      alert("User not found.");
+    }
+  } else {
+    alert("No user is currently logged in.");
+    location.href = "./FarmerLogInPage.html";
+  }
+}
+
+// Function to update user data
+function updateUser() {
+  if (unique_id) {
+    const user_data = findUserByMobileNumber(unique_id);
+
+    if (user_data) {
+
+      const name = document.getElementById("name").value;
+      const district = document.getElementById("district").value;
+      const town = document.getElementById("town").value;
+      // You can update the user's information here, for example:
+      user_data.name = name;
+      user_data.district = district;
+      user_data.town = town;
+
+      // Update the user list in localStorage
+      localStorage.setItem("user_list", JSON.stringify(user_list));
+      alert("User updated successfully");
+    } else {
+      alert("User not found.");
+    }
+  } else {
+    alert("No user is currently logged in.");
+  }
+}
+
+// Function to delete user data
+function deleteUser() {
+  if (unique_id) {
+    const userIndex = user_list.findIndex(user => user.mobileNumber === unique_id);
+
+    if (userIndex !== -1) {
+      // Remove the user from the list
+      user_list.splice(userIndex, 1);
+
+      // Update the user list in localStorage
+      localStorage.setItem("user_list", JSON.stringify(user_list));
+      localStorage.removeItem("unique");
+      alert("User deleted successfully");
+      // Redirect to the login page or any other appropriate action
+      location.href = "../Farmer/FARMER PAGE 1.html";
+    } else {
+      alert("User not found.");
+    }
+  } else {
+    alert("No user is currently logged in.");
+  }
+}
+
+// Function to log out the user
+function logoutUser() {
+  localStorage.removeItem("unique");
+  alert("Logged out successfully");
+  // Redirect to the login page or any other appropriate action
+  location.href = "../Farmer/farmer sign in page 3.html";
+}
+
+// Call the function to populate the user profile on page load
+populateUserProfile();
+
+</script>
+
+    </body>
+
+</html>

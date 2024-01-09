@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mill owner form page</title>
+    <link rel="stylesheet" href="../../assets/mill owner .css/mill owner form page.css">
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <div class="container">
+    
+            <h2>Grains Form</h2>
+            <form onsubmit="upload()">
+                <div class="form-group">
+                    <label>Grain name:</label>
+                    <input type="text" id="grain_name" placeholder="EG: Paddy"  disabled>
+                </div>
+                <div class="form-group">
+                    <label>Variety:</label>
+                    <input type="text" id="variety_name"  placeholder="EG: IR8" required>
+                </div>
+                <div class="form-group">
+                    <label>Quantity:</label>
+                    <input type="number" id="quantity"  name="quantity" placeholder="EG: gunny" required>
+                </div>
+                <div class="form-group">
+                    <label>Price:</label>
+                    <input type="text" id="price" name="price" placeholder="EG: 1kg = 15rs" required>
+                    <span id="priceError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <input  onclick="update(event)" type="submit" value="Submit">
+                </div>
+            </form>
+
+    </div>
+    <script>
+        const grain_details= JSON.parse(localStorage.getItem('grain_details'));
+
+        function update(e){
+            const grain_name = document.getElementById('grain_name');
+            const variety_name = document.getElementById('variety_name');
+            const quantity = document.getElementById('quantity');
+            const price = document.getElementById('price');
+            grain_data.grain_name = grain_name;
+            grain_data.vareity_name = vareity_name;
+            grain_data.quantity = quantity;
+            grain_data.price = price;
+            localStorage.setItem("grain_details",JSON.stringify(grain_details));
+            alert("grain details updated");
+        }
+        
+    </script>
+</body>
+
+</html>

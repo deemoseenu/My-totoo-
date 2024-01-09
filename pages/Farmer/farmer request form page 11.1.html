@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="../../assets/style.css/farmer request form11.2.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Grains Form</h2>
+        <form onsubmit="upload()">
+            <div class="form-group">
+                <label>Grain name:</label>
+                <input type="text" id="grain_name"  placeholder="EG:Paddy"  value="wheat" required disabled>
+
+
+                
+
+            </div>
+            <div class="form-group">
+                <label>Variety:</label>
+                <input type="text" id="variety_name" value="ir8" placeholder="EG:IR8" required>
+
+            
+
+            </div>
+            <div class="form-group">
+                <label>Quantity:</label>
+                <input type="number" id="quantity" value="12" name="quantity" placeholder="EG:gunny" required>
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input type="number" id="price" name="price" placeholder="EG:1kg=15rs" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+
+<script>
+
+    // const categorySel = {
+    //   Paddy: [
+    //     "AD8",
+    //     "IR8",
+    //     "IR8",
+    //     "IR8",
+    //     "IR8",
+
+    //   ],
+    //   Wheat: [
+    //     "n01",
+    //     "no2",
+    //   ],
+    //   Cotton: [
+    //    "White",
+    //    "yellow",
+    //   ],
+    //   Tea: [
+    //    "black",
+    //   ],
+    // };
+    //         // to get the values only (for eg : saree, frock, leganga)
+    //         // Object.values(categorySel)
+    //         // to get the key value only (for eg : dress, cosmetics, sandal)
+    //         // Object.keys(categorySelectors) //   [  key1, key2, key3 ]
+    //         // to get both keys and values (for eg : )
+    //         window.onload = function categories() {
+    //   const grain_name = document.getElementById("grain_name");
+    //   const variety_name = document.getElementById("variety_name");
+
+    //   // Load data from localStorage, if available
+    //   const savedData = localStorage.getItem("selectedOptions");
+    //   if (savedData) {
+    //     const { selectedGrain, selectedVariety } = JSON.parse(savedData);
+    //     grain_name.value = selectedGrain;
+    //     populateVarieties(selectedGrain, selectedVariety);
+    //   }
+
+    //   for (const types in categorySel) {
+    //     grain_name.options[grain_name.options.length] = new Option(types, types);
+    //   }
+
+    //   grain_name.onchange = (e) => {
+    //     variety_name.length = 1; // remove all options but the first one
+    //     if (e.currentTarget.selectedIndex < 1) return; // done
+    //     const selectedGrain = e.currentTarget.value;
+    //     const selectedVariety = populateVarieties(selectedGrain);
+
+    //     // Store selected options in localStorage
+    //     const data = { selectedGrain, selectedVariety };
+    //     localStorage.setItem("selectedOptions", JSON.stringify(data));
+    //   };
+
+    //   function populateVarieties(selectedGrain, selectedVariety) {
+    //     const ft = categorySel[selectedGrain];
+    //     for (const fields in ft) {
+    //       variety_name.options[variety_name.options.length] = new Option(ft[fields], fields);
+    //     }
+
+    //     // Set the selected variety, if available
+    //     if (selectedVariety) {
+    //       variety_name.value = selectedVariety;
+    //     }
+
+    //     return variety_name.value;
+    //   }
+
+    //   grain_name.onchange();
+    // };
+
+    //for submit the form
+
+    function upload(e) {
+        let grain_data = JSON.parse(localStorage.getItem("grain_details"));
+        let User_unique_id = localStorage.getItem("unique");
+        let user_list = JSON.parse(localStorage.getItem("user_list"));
+        let current_user = user_list.find(found => {
+            return User_unique_id === found.mobile_number;
+        });
+
+        let grain_name = document.getElementById("grain_name").value;
+        let variety_name = document.getElementById("variety_name").value;
+        let quantity = document.getElementById("quantity").value;
+        let price = document.getElementById("price").value;
+        let id = Date.now()
+
+        console.table([grain_name, variety_name, quantity, price])
+
+        let arr = [];
+        let obj = {};
+        obj["grains_id"] = id
+        obj["grain_name"] = grain_name;
+        obj["variety_name"] = variety_name;
+        obj["quantity"] = quantity;
+        obj["price"] = price;
+        obj["name"] = current_user.name;
+        obj["mobile_number"] = current_user.mobile_number;
+        obj["district"] = current_user.district;
+        obj["town"] = current_user.town;
+        obj["Status"] = true;
+
+        console.table(obj)
+
+
+
+        console.log(current_user)
+        // let user_details = 
+
+        if (grain_data === null) {
+            arr.push(obj)
+            window.localStorage.setItem("grain_details", JSON.stringify(arr));
+            alert("Successfully posted")
+        } else {
+            let local = JSON.parse(window.localStorage.getItem("grain_details"));
+            console.log(local);
+
+            local.push(obj);
+            window.localStorage.setItem("grain_details", JSON.stringify(local));
+            alert("Successfully posted")
+        }
+
+
+
+
+
+    }
+
+
+    let variety_name = document.getElementById("variety_name")
+    variety_name.addEventListener("click", (e) => {
+
+        let grain_name = document.getElementById("grain_name").value
+        console.log(grain_name);
+
+        let market_rate = JSON.parse(localStorage.getItem("market_rate"))
+        console.log(market_rate)
+
+        if (grain_name == "paddy") {
+            let price = document.getElementById("price")
+            price.setAttribute("value", market_rate.paddy)
+        }
+    })
+
+
+
+
+
+</script>
+
+</html>

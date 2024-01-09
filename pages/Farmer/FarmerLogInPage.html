@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Sign In Page</title>
+    <link rel="stylesheet" href="../../assets/style.css/Farmer sign in page3.css">
+    <link rel="stylesheet" href=>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="../../images/agri_logo.png" alt="logo" width="180px" height="80px">
+            <div class="form">
+                <form onsubmit="signIn(event);">
+                    <div class="form-con">
+                        <label class="user_number">User mobile number</label>
+                        <input type="text" id="mobile_number" pattern="[6789]{1}[0-9]{9}" class="mobile_number" required>
+                    </div>
+                    <div class="form-con">
+                        <label class="user_password">Password</label>
+                        <input type="password" id="password" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="submit" src="">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+           function signIn(e) {
+        e.preventDefault();
+        const mobile_number = document.getElementById("mobile_number").value;
+        const password = document.getElementById("password").value;
+
+        // Check if 'user_list' exists in localStorage
+        if (localStorage.getItem("user_list")) {
+            const user_list = JSON.parse(localStorage.getItem("user_list"));
+
+            const exist = user_list.some(
+                (data) =>
+                    data.password.toLowerCase() === password.toLowerCase() &&
+                    data.mobileNumber === mobile_number
+            );
+
+            if (!exist) {
+                alert("Incorrect login credentials");
+            } else {
+                // Check if the user is registered
+                const isRegistered = user_list.some(
+                    (data) => data.mobileNumber === mobile_number
+                );
+
+                if (isRegistered) {
+                    alert("Your login is successful");
+                    localStorage.setItem("unique", mobile_number);
+                    location.href = "./FarmerHomePage.html";
+                } else {
+                    alert("User not registered. Please register first.");
+                    // Redirect to the registration page
+                    location.href = "./FarmerRegisterPage.html";
+                }
+            }
+        } else {
+            // Handle the case where 'user_list' doesn't exist in localStorage
+            alert("No user data found. Please register first.");
+            location.href = "./FarmerRegisterPage.html";
+        }
+    }
+    </script>
+</body>
+</html>

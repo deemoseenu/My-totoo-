@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title> user home page</title>
+        <link rel="stylesheet" href="../../assets/user.css/user home page 1.css">
+
+    </head>
+
+    <body>
+        <nav>
+
+            <div>
+                <img src="../../images/agri logo.png" alt="logo" width="250px">
+            </div>
+            <div class="search">
+                <input type="text" placeholder=" search">
+            </div>
+
+      
+           
+            <div class="profile">
+                <a href="./profile page 6.html">
+                    <img src="../../images/person-circle-outline.svg" alt="profile" width="40px">
+                </a>
+            </div>
+
+        </nav>
+        <hr>
+
+        <div class="container">
+            <div class="container1">
+
+                <div class="rice"> 
+                    <a href="./user rice page 3.html">
+                        <img src="../../images/paddy.jpg" alt="rice image" width="200px" height="250px">
+                        <h1>
+                            <p>Paddy</p>
+                        </h1>
+                    </a>
+
+                </div>  
+                <div class="wheat">
+                    <a href="./wheat page 8.html">
+                        <img src="../../images/Wheat.jpg" alt="wheat image" width="200px" height="250px">
+                        <h1>
+                            <p>Wheat</p>
+                        </h1>
+                    </a>
+
+                </div>
+                <div class="cotton">
+                    <a>
+                        <img src="../../images/Sugar Cane.jpg" alt="cotton" width="200px" height="250px">
+                        <h1>
+                            <p>Sugar cane</p>
+                        </h1>
+                    </a> 
+
+                    
+
+                </div>
+
+            </div>
+
+            <div class="container1">
+
+                <div class="rice"> 
+                    <a href="./user rice page 3.html">
+                        <img src="../../images/Cotton.jpg" alt="rice image" width="200px" height="250px">
+                        <h1>
+                            <p>Cotton</p>
+                        </h1>
+                    </a>
+
+                </div>  
+                <div class="wheat">
+                    <a href="./wheat page 8.html">
+                        <img src="../../images/Tea.jpg" alt="wheat image" width="200px" height="250px">
+                        <h1>
+                            <p>Tea</p>
+                        </h1>
+                    </a>
+
+                </div>
+                <div class="cotton">
+                    <a>
+                        <img src="../../images/Coffe leaf.jpg" alt="cotton" width="200px" height="250px">
+                        <h1>
+                            <p>Coffee</p>
+                        </h1>
+                    </a> 
+
+                    
+
+                </div>
+
+            </div>
+
+
+       
+
+            <footer>
+
+                <div class="footer">
+                    <div class="clt">
+                        <img src="../../images/agri logo.png" alt="logo" width="250px">
+
+                        <div>
+                            <span></span>
+                            Location<br>
+                            No.7,kirshna raja pura colony,chennai.
+                        </div>
+                        <div>
+                            <span>&#x2706;</span> 91 8270148693,9042519103.
+                        </div>
+                        <di>
+                            <span>&#x2709;</span>sivagopi8270@gmail.com
+                        </di>
+                    </div>
+
+                    <div class="footer1">
+                        <div class="f1">
+                            <h2>our product</h2>
+                            <br>
+                            Micronutrients<br>
+                            Other Products<br>
+                            Speciality Nutrients<br>
+                            Hydroponics and Consultancy<br>
+                        </div>
+                        <div class="f2">
+                            <h2>About us</h2>
+                            <br>
+                            Company Overview<br>
+                            CSR Activities<br>
+                            Career with us<br>
+                            Gallery<br>
+                            Contact Us<br>
+                            Digital Payment
+                        </div>
+                        <div class="f3">
+                            <h2>Quick Links</h2>
+                            <br>
+                            Home<br>
+                            Farmer<br>
+                            Mill owner<br>
+                            user
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="copy">
+                    <h1>Copyright © AG ZONE | All Rights Reserved</h1>
+                </div>
+
+            </footer>
+
+            <script>
+
+                let products = JSON.parse(localStorage.getItem("grain_details"));
+
+                for (i = 0; i < products.length; i++) {
+                // div open
+                div_rice = document.createElement("div");
+                div_rice.setAttribute("class", "rice");
+
+                a_list = document.createElement("a");
+                // a_list.setAttribute("href", "./user rice page 3.html");
+                div_rice.append(a_list);
+
+                img_card = document.createElement("img");
+                img_card.setAttribute("src", products[i]["grains_image"]);
+                img_card.setAttribute("width", "200px");
+                img_card.setAttribute("height", "250px");
+                img_card.setAttribute("class", "card-img-top");
+                a_list.append(img_card);
+
+                // h1 tag
+
+                h1_hen = document.createElement("h1");
+                h1_hen.setAttribute("class", "hen");
+                a_list.append(h1_hen);
+
+                // p
+
+                p_hent = document.createElement("p");
+                p_hent.setAttribute("class", "hent");
+                p_hent.innerText = products[i]["description"];
+                h1_hen.append(p_hent);
+
+                document.querySelector("div.container1").append(div_rice);
+                }
+
+                </script> 
+
+</body>
+
+</html>

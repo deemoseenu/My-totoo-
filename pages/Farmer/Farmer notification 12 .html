@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>farmer notification page 12</title>
+        <link rel="stylesheet" href="../../assets/style.css/Farmer notifiction 12.css">
+
+    </head>
+
+    <body>
+        <header>
+            <div class="tr">
+
+                <div class="tu">
+                    <a href="./Farmer home page 4.html">
+                        <img src="../../images/arrow-back-outline.svg" alt="back arrow" width="60px">
+                    </a>
+                
+                </div>
+
+                <div class="tum">
+                    <h1>
+                        <strong>NOTIFICATION</strong>
+                    </h1>
+                    <img src="../../images/notifications-outline.svg" alt="notification logo" width="40px">
+                </div>
+            
+            </div>
+
+           
+        </header>
+
+        <hr>
+
+        <div class="container1">
+            
+
+           
+        </div>
+
+    </body>
+
+
+
+
+
+    <script>
+
+        let products = JSON.parse(localStorage.getItem("grain_details"))
+        products.find(el => {
+            
+
+            if(el.Status === false){
+
+                console.log("working")
+
+
+                div_container = document.createElement("div");
+                div_container.setAttribute("class", "container");
+
+                //2 div open
+                div_detail = document.createElement("div");
+                div_detail.setAttribute("class", "detail");
+                div_container.append(div_detail)
+
+
+                // // h2 dag open
+                // h2_company_name = document.createElement("h2");
+                // h2_company_name.setAttribute("class","company_name");
+                // h2_company_name.innerText = el["company_name"];
+                // div_detail.append(h2_company_name);
+                // p1
+                p_name = document.createElement("p");
+                p_name.setAttribute("class", "name");
+                p_name.innerText = "Mill Owner name :" + el["name"];
+                div_detail.append(p_name);
+
+
+                //p3
+                p_district = document.createElement("p");
+                p_district.setAttribute("class", "district");
+                p_district.innerText = "District :" + el["district"];
+                div_detail.append(p_district);
+
+
+                //p4
+                p_town = document.createElement("p");
+                p_town.setAttribute("class", "town");
+                p_town.innerText = "Town :" + el["town"];
+                div_detail.append(p_town);
+
+
+                //p5
+                p_mobile_number = document.createElement("p");
+                p_mobile_number.setAttribute("class", "mobile_number");
+                p_mobile_number.innerText = "Mobile Number :" + el["mobile_number"];
+                div_detail.append(p_mobile_number);
+
+
+                // div_detail.append(div_grains)
+                // 2 div for button
+                div_button = document.createElement("div");
+                div_button.setAttribute("class", "button");
+               
+
+                div_detail.append(div_button)
+
+                button_button = document.createElement("button");
+                button_button.setAttribute("class", "button1");
+                button_button.innerText = "accept"
+                button_button.addEventListener("click",function(e){
+                    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+                    let order = {
+                        name:el.name,
+                        district:el.district,
+                        town:el.town,
+                        mobile_number:el.mobile_number
+
+                    }
+                })
+
+                div_detail.append(button_button);
+
+
+                //button
+                button_button = document.createElement("button");
+                button_button.setAttribute("class", "button1");
+                button_button.innerText = "Remove"
+                button_button.addEventListener("click",function(e){
+                    el.Status = true
+                    localStorage.setItem("grain_details", JSON.stringify(products))
+                    location.reload(1)
+                })
+
+                div_button.append(button_button)
+                // button_button.setAttribute("data-number", el.mobile_number)
+                // button_button.setAttribute("id", el["grains_id"]);
+               
+                document.querySelector(".container1").append(div_container)
+
+
+
+
+            }
+
+        })
+
+
+    </script>
+
+
+
+</html>
+
+

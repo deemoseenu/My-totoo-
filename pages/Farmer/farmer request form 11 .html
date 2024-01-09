@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="../../assets/style.css/Farmer request 11.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Grains Form</h2>
+        <form onsubmit="upload()">
+            <div class="form-group">
+                <label>Grain name:</label>
+                <input type="text" id="grain_name" placeholder="EG: Paddy" required value="paddy" disabled>
+            </div>
+            <div class="form-group">
+                <label>Variety:</label>
+                <input type="text" id="variety_name" value="ir8" placeholder="EG: IR8" required disabled>
+            </div>
+            <div class="form-group">
+                <label>Quantity:</label>
+                <input type="number" id="quantity" value="12" name="quantity" placeholder="EG: gunny" min="20" max="500" title="minimum 20 kg to sell the grains " required>
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input type="text" id="price" name="price" placeholder="EG: 1kg = 15rs" required>
+                <span id="priceError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function upload(e) {
+    let grain_data = JSON.parse(localStorage.getItem("grain_details"));
+    let User_unique_id = localStorage.getItem("unique");
+    let user_list = JSON.parse(localStorage.getItem("user_list"));
+    let current_user = user_list.find(found => {
+        return User_unique_id === found.mobile_number;
+    });
+
+    let grain_name = document.getElementById("grain_name").value;
+    let variety_name = document.getElementById("variety_name").value;
+    let quantity = document.getElementById("quantity").value;
+    let price = document.getElementById("price").value;
+    let id = Date.now()
+
+    console.table([grain_name, variety_name, quantity, price])
+
+    let arr = [];
+    let obj = {};
+    obj["grains_id"] = id
+    obj["grain_name"] = grain_name;
+    obj["variety_name"] = variety_name;
+    obj["quantity"] = quantity;
+    obj["price"] = price;
+    obj["name"] = current_user.name;
+    obj["mobile_number"] = current_user.mobile_number;
+    obj["district"] = current_user.district;
+    obj["town"] = current_user.town;
+    obj["Status"] = true;
+
+    console.table(obj)
+
+
+
+    console.log(current_user)
+    // let user_details = 
+
+    if (grain_data === null) {
+        arr.push(obj)
+        window.localStorage.setItem("grain_details", JSON.stringify(arr));
+        alert("Successfully posted")
+    } else {
+        let local = JSON.parse(window.localStorage.getItem("grain_details"));
+        console.log(local);
+
+        local.push(obj);
+        window.localStorage.setItem("grain_details", JSON.stringify(local));
+        alert("Successfully posted")
+    }
+
+
+
+
+
+}
+
+
+let variety_name = document.getElementById("variety_name")
+variety_name.addEventListener("click", (e) => {
+
+    let grain_name = document.getElementById("grain_name").value
+    console.log(grain_name);
+
+    let market_rate = JSON.parse(localStorage.getItem("market_rate"))
+    console.log(market_rate)
+
+    if (grain_name == "paddy") {
+        let price = document.getElementById("price")
+        price.setAttribute("value", market_rate.paddy)
+    }
+})
+
+const market_values = JSON.parse(localStorage.getItem("market_values"));
+console.log(market_values);
+
+const market = JSON.parse(localStorage.getItem("market_values"));
+// console.log(unique_id);
+function profile_data(e) {
+  return e.market_values == market_values;
+}
+
+//     
+    </script>
+
+</body>
+
+</html>
+
+
+
